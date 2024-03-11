@@ -23,6 +23,8 @@ pipeline {
           dir('EKS') {
         
             sh 'terraform init'
+            sh 'terraform destroy'
+             sh 'terraform init'
 
           }
         }
