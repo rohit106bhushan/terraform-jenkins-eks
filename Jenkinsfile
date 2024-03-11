@@ -31,6 +31,15 @@ pipeline {
                 }
             }
         }
+        stage('Refreshing Terraform'){
+            steps{
+                script{
+                    dir('EKS'){
+                        sh 'terraform refresh'
+                    }
+                }
+            }
+        }
         stage('Validating Terraform'){
             steps{
                 script{
