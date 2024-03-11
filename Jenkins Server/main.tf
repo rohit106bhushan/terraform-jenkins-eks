@@ -5,7 +5,7 @@ module "vpc" {
   name = "jenkins-vpc"
   cidr = var.vpc_cidr
 
-  azs            = data.aws_availability_zones.azs.names
+  azs = data.aws_availability_zones.azs.names
   public_subnets = var.public_subnets
   map_public_ip_on_launch = true
 
@@ -68,7 +68,7 @@ module "ec2_instance" {
   name = "Jenkins-Server"
 
   instance_type               = var.instance_type
-  key_name                    = "jenkins-server-key"
+  key_name                    = "ultimate-cicd"
   monitoring                  = true
   vpc_security_group_ids      = [module.sg.security_group_id]
   subnet_id                   = module.vpc.public_subnets[0]
