@@ -21,8 +21,8 @@ pipeline {
       steps {
         script {
           dir('EKS') {
-            sh 'terraform destroy'
-            sh 'terraform init'
+        
+            sh 'terraform init-reconfigure'
 
           }
         }
