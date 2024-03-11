@@ -52,7 +52,7 @@ pipeline {
           dir('EKS') {
             sh 'terraform plan'
           }
-          input(message: "Are you sure to proceed?", ok: "Proceed")
+          // input(message: "Are you sure to proceed?", ok: "Proceed")
         }
       }
     }
@@ -60,7 +60,7 @@ pipeline {
       steps {
         script {
           dir('EKS') {
-            sh 'terraform $action --auto-approve'
+            sh 'terraform apply --auto-approve'
           }
         }
       }
