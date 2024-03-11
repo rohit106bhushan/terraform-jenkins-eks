@@ -22,7 +22,7 @@ pipeline {
         script {
           dir('EKS') {
         
-            sh 'terraform init-reconfigure'
+            sh 'terraform init -reconfigure'
 
           }
         }
