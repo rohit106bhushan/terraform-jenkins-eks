@@ -13,11 +13,20 @@ pipeline {
                 }
             }
         }
+        stage('Refreshing Terraform'){
+            steps{
+                script{
+                    dir('EKS'){
+                        sh 'terraform refresh'
+                    }
+                }
+            }
         stage('Initializing Terraform'){
             steps{
                 script{
                     dir('EKS'){
-                        sh 'terraform init -migrate-state'
+            
+                        sh 'terraform init'
                     }
                 }
             }
@@ -31,14 +40,7 @@ pipeline {
                 }
             }
         }
-        stage('Refreshing Terraform'){
-            steps{
-                script{
-                    dir('EKS'){
-                        sh 'terraform refresh'
-                    }
-                }
-            }
+        
         }
         stage('Validating Terraform'){
             steps{
