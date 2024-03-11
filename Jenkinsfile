@@ -13,14 +13,7 @@ pipeline {
                 }
             }
         }
-        stage('Refreshing Terraform'){
-            steps{
-                script{
-                    dir('EKS'){
-                        sh 'terraform refresh'
-                    }
-                }
-            }
+       
         stage('Initializing Terraform'){
             steps{
                 script{
