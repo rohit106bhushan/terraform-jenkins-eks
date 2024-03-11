@@ -17,12 +17,12 @@ pipeline {
         }
       }
     }
-    stage('Destroying and Initializing Terraform') {
+    stage('Initializing Terraform') {
       steps {
         script {
           dir('EKS') {
         
-            sh 'terraform init -reconfigure'
+            sh 'terraform init'
 
           }
         }
@@ -52,7 +52,7 @@ pipeline {
           dir('EKS') {
             sh 'terraform plan'
           }
-          // input(message: "Are you sure to proceed?", ok: "Proceed")
+    
         }
       }
     }
