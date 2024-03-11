@@ -14,12 +14,13 @@ pipeline {
             }
         }
        
-        stage('Initializing Terraform'){
+        stage('Destroy and Initializing Terraform'){
             steps{
                 script{
                     dir('EKS'){
             
-                        sh 'terraform init'
+                        sh 'terraform destroy'
+						sh 'terraform init'
                     }
                 }
             }
